@@ -1,0 +1,11 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+var func = parseInt(lines.shift("Informe número do Funcionário"));
+var horasTrab =  parseInt(lines.shift("Informe horas trabalhadas"));
+var valorHora =  parseFloat(lines.shift("Informe o valor da Hora Trabalhada"));
+
+var calculo = horasTrab * valorHora;
+
+console.log("NUMBER = " + func)
+console.log("SALARY = U$ " + calculo.toFixed(2))
