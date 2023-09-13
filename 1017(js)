@@ -1,0 +1,10 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift();};
+
+var temp = parseInt(prompt("Digite o tempo em Horas:"));
+var vm = parseInt(prompt("Digite a velocidade em Km:"));
+
+var distancia = (vm * temp) / 12;
+var litrosnecessarios = distancia.toFixed(3);
+console.log(litrosnecessarios);
