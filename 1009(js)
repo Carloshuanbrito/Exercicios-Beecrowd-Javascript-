@@ -1,0 +1,11 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift();};
+
+var nome = prompt("Informe o nome do vendedor");
+var salarioFixo = parseFloat(prompt("Informe seu salário Fixo"));
+var vendasEfetuadas = parseFloat(prompt("Quantas vendas fez?"));
+
+var calculo = salarioFixo + (vendasEfetuadas * 0.15);
+
+console.log("TOTAL = R$ " + calculo.toFixed(2));
