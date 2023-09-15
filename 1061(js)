@@ -1,0 +1,28 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.trim().split('\n');
+var prompt = function(texto) { return lines.shift();};
+
+var [_, diaInicio] = prompt().split(' ');
+var [horaInicio, minutoInicio, segundoInicio] = prompt().split(':').map(Number);
+var [_, diaTermino] = prompt().split(' ');
+var [horaTermino, minutoTermino, segundoTermino] = prompt().split(':').map(Number);
+
+var totalSegundosInicio = diaInicio * 86400 + horaInicio * 3600 + minutoInicio * 60 + segundoInicio;
+var totalSegundosTermino = diaTermino * 86400 + horaTermino * 3600 + minutoTermino * 60 + segundoTermino;
+
+var duracaoSegundos = totalSegundosTermino - totalSegundosInicio;
+
+var dias = Math.floor(duracaoSegundos / 86400);
+duracaoSegundos -= dias * 86400;
+
+var horas = Math.floor(duracaoSegundos / 3600);
+duracaoSegundos -= horas * 3600;
+
+var minutos = Math.floor(duracaoSegundos / 60);
+duracaoSegundos -= minutos * 60;
+
+var segundos = duracaoSegundos;
+
+console.log(dias + ' dia(s)');
+console.log(horas + ' hora(s)');
+console.log(minutos + ' minuto(s)');
