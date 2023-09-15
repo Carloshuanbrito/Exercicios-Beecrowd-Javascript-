@@ -1,0 +1,19 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.trim().split('\n');
+var prompt = function(texto) { return lines.shift(); };
+
+var valores = prompt("Informe valores para A, B e C por espaços separados").split(" ").map(parseFloat);
+var A = valores[0];
+var B = valores[1];
+var C = valores[2];
+
+var delta = Math.pow(B, 2) - 4 * A * C;
+var R1 = (-B + Math.sqrt(delta)) / (2 * A);
+var R2 = (-B - Math.sqrt(delta)) / (2 * A);
+
+if (A === 0 || delta < 0) {
+    console.log("Impossivel calcular");
+} else {
+    console.log("R1 = " + R1.toFixed(5));
+    console.log("R2 = " + R2.toFixed(5));
+}
