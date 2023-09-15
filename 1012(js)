@@ -1,6 +1,8 @@
 var input = require('fs').readFileSync('/dev/stdin', 'utf8');
 var lines = input.trim().split('\n');
-var valores = lines[0].split(' ').map(Number);
+var prompt = function(texto) { return lines.shift(); };
+
+var valores = prompt("Digite os valores de A, B e C separados por espaço: ").split(' ').map(Number);
 
 var A = valores[0];
 var B = valores[1];
