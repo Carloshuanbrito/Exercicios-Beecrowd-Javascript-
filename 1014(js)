@@ -1,0 +1,10 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift();};
+
+var X = parseInt(prompt("Informe a distância em km:"));
+var Y = parseFloat(prompt("Informe o quantidade de combustivel:"));
+
+var calculo = X / Y;
+
+console.log(calculo.toFixed(3) + " km/l");
