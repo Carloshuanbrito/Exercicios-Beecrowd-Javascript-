@@ -1,0 +1,15 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift();};
+
+var seg = parseInt(prompt("Informe a quantidade de tempo em segundos:"));
+
+var horas = parseInt(seg / 3600);
+seg = parseInt(seg % 3600);
+
+var minutos = parseInt(seg / 60);
+seg = parseInt(seg % 60);
+
+var restseg = seg ;
+
+console.log(horas+":"+minutos+":"+restseg);
