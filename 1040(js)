@@ -1,0 +1,26 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift();};
+
+var [n1, n2, n3, n4] = prompt("Informe suas notas:").split(" ").map(Number);
+var notaExame = parseFloat(prompt("informe nota do Exame:"));
+
+var media = (n1 * 2 + n2 * 3 + n3 * 4 + n4 * 1) / 10;
+
+console.log("Media: "+media.toFixed(1));
+
+if (media >= 7.0) {
+  console.log("Aluno aprovado.")
+} else if (media < 5.0) {
+  console.log("Aluno reprovado.")
+} else {
+  console.log("Aluno em exame.")
+  console.log("Nota do exame: "+notaExame.toFixed(1));
+  const mediaFinal = (notaExame + media) / 2;
+  if (mediaFinal >= 5.0) {
+    console.log("Aluno aprovado.")
+  } else {
+    console.log("Aluno reprovado.")
+  }
+  console.log("Media final: "+mediaFinal.toFixed(1));
+}
