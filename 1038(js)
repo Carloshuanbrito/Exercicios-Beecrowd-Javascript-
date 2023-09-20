@@ -1,0 +1,21 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+var [cod,quant] = lines.shift("Informe o codigo do produto e quantidade:").split(" ").map(Number);
+
+if (cod === 1){
+    var total = 4.00 * quant
+    console.log('Total: R$', total.toFixed(2))
+}else if(cod === 2){
+    var total = 4.50 * quant
+    console.log('Total: R$', total.toFixed(2))
+}else if (cod === 3){
+    var total = 5.00 * quant
+    console.log('Total: R$', total.toFixed(2))
+}else if(cod === 4){
+    var total = 2.00 * quant
+    console.log('Total: R$', total.toFixed(2))
+}else if (cod === 5){
+    var total = 1.50 * quant
+    console.log('Total: R$', total.toFixed(2))
+}
