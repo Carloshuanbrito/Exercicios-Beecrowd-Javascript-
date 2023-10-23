@@ -1,0 +1,11 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift();};
+
+var n = parseInt(prompt('Informe o número de casos de teste: '));
+
+for (var i = 0; i < n; i++) {
+  var valores = prompt('Informe três valores reais com uma casa decimal: ').split(' ').map(Number);
+  var mediaPonderada = (valores[0] * 2 + valores[1] * 3 + valores[2] * 5) / 10;
+  console.log(mediaPonderada.toFixed(1));
+}
