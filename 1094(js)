@@ -1,0 +1,38 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift();};
+
+var n = parseInt(prompt('Informe o número de casos de teste: '));
+var totalCobaias = 0;
+var totalCoelhos = 0;
+var totalRatos = 0;
+var totalSapos = 0;
+
+for (var i = 0; i < n; i++) {
+  var entrada = prompt('Informe a quantidade e o tipo de cobaia (ex: "10 C"): ').split(' ');
+  var quantia = parseInt(entrada[0]);
+  var tipo = entrada[1];
+
+  totalCobaias += quantia;
+
+  if (tipo === 'C') {
+    totalCoelhos += quantia;
+  } else if (tipo === 'R') {
+    totalRatos += quantia;
+  } else if (tipo === 'S') {
+    totalSapos += quantia;
+  }
+}
+
+console.log('Total: ' + totalCobaias + ' cobaias');
+console.log('Total de coelhos: ' + totalCoelhos);
+console.log('Total de ratos: ' + totalRatos);
+console.log('Total de sapos: ' + totalSapos);
+
+var percentualCoelhos = (totalCoelhos / totalCobaias * 100).toFixed(2);
+var percentualRatos = (totalRatos / totalCobaias * 100).toFixed(2);
+var percentualSapos = (totalSapos / totalCobaias * 100).toFixed(2);
+
+console.log('Percentual de coelhos: ' + percentualCoelhos + ' %');
+console.log('Percentual de ratos: ' + percentualRatos + ' %');
+console.log('Percentual de sapos: ' + percentualSapos + ' %');
