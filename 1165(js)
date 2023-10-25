@@ -1,0 +1,26 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift();};
+
+var n = parseInt(prompt('Informe o número de casos de teste: '));
+
+function primo(x) {
+  if (x <= 1) {
+    return false;
+  }
+  for (var i = 2; i * i <= x; i++) {
+    if (x % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+for (var i = 0; i < n; i++) {
+  var x = parseInt(prompt('Informe um número para verificar se é primo: '));
+  if (primo(x)) {
+    console.log(x + ' eh primo');
+  } else {
+    console.log(x + ' nao eh primo');
+  }
+}
