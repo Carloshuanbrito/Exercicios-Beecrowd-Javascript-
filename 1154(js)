@@ -1,0 +1,24 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift();};
+
+var soma = 0;
+var contador = 0;
+
+while (true) {
+  var idade = parseInt(prompt('Informe a idade (ou um número negativo para encerrar): '));
+
+  if (idade < 0) {
+    break;
+  }
+
+  soma += idade;
+  contador++;
+}
+
+if (contador > 0) {
+  var media = soma / contador;
+  console.log(media.toFixed(2));
+} else {
+  console.log('Nenhuma idade válida foi informada.');
+}
