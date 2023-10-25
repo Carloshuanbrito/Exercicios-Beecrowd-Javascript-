@@ -1,0 +1,27 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift();};
+
+var n = parseInt(prompt('Informe um valor inteiro N (0 < N < 46): '));
+
+var a = 0;
+var b = 1;
+
+var resultado = '';
+
+if (n >= 1) {
+  resultado += a;
+}
+
+if (n >= 2) {
+  resultado += ' ' + b;
+}
+
+for (var i = 2; i < n; i++) {
+  var c = a + b;
+  resultado += ' ' + c;
+  a = b;
+  b = c;
+}
+
+console.log(resultado);
