@@ -1,0 +1,18 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift();}
+
+var x = parseInt(prompt('Informe o valor de X: '));
+var y = parseInt(prompt('Informe o valor de Y: '));
+
+if (x > y) {
+  var temp = x;
+  x = y;
+  y = temp;
+}
+
+for (var i = x + 1; i < y; i++) {
+  if (i % 5 === 2 || i % 5 === 3) {
+    console.log(i);
+  }
+}
