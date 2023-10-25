@@ -1,0 +1,23 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift();};
+
+while (true) {
+  var entrada = prompt('Informe as coordenadas (X, Y) ou digite 0 0 para encerrar: ').split(' ');
+  var x = parseInt(entrada[0]);
+  var y = parseInt(entrada[1]);
+
+  if (x === 0 || y === 0) {
+    break;
+  }
+
+  if (x > 0 && y > 0) {
+    console.log('primeiro');
+  } else if (x < 0 && y > 0) {
+    console.log('segundo');
+  } else if (x < 0 && y < 0) {
+    console.log('terceiro');
+  } else if (x > 0 && y < 0) {
+    console.log('quarto');
+  }
+}
