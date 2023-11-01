@@ -1,0 +1,16 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+var N = parseInt(lines[0]);
+
+for (var i = 1; i <= N; i++) {
+    var x = i;
+    var y = Math.pow(i, 2);
+    var z = Math.pow(i, 3);
+    console.log(x, y, z);
+    
+    x = i;
+    y = Math.pow(i, 2) + 1;
+    z = Math.pow(i, 3) + 1;
+    console.log(x, y, z);
+}
