@@ -1,0 +1,28 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+while (true) {
+    var valores = lines.shift().split(' ');
+    var M = parseInt(valores[0]);
+    var N = parseInt(valores[1]);
+
+    if (M <= 0 || N <= 0) {
+        break;
+    }
+
+    var sum = 0;
+    var output = "";
+
+    if (M > N) {
+        var temp = M;
+        M = N;
+        N = temp;
+    }
+
+    for (var i = M; i <= N; i++) {
+        output += i + ' ';
+        sum += i;
+    }
+
+    console.log(output + "Sum=" + sum);
+}
