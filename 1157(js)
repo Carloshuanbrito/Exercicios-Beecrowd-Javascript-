@@ -1,0 +1,10 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+const N = parseInt(input);
+
+for (let i = 1; i <= N; i++) {
+  if (N % i === 0) {
+    console.log(i);
+  }
+}
