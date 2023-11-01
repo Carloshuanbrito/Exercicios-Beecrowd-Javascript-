@@ -1,0 +1,22 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+var N = parseInt(lines[0]);
+
+for (var i = 1; i <= N; i++) {
+    var X = parseInt(lines[i]);
+
+    var somaDivisores = 0;
+
+    for (var j = 1; j < X; j++) {
+        if (X % j === 0) {
+            somaDivisores += j;
+        }
+    }
+
+    if (somaDivisores === X) {
+        console.log(X + ' eh perfeito');
+    } else {
+        console.log(X + ' nao eh perfeito');
+    }
+}
