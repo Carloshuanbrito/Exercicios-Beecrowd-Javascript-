@@ -1,0 +1,23 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+for (var i = 0; i < lines.length; i++) {
+    var X = parseInt(lines[i]);
+
+    if (X === 0) {
+        break;
+    }
+
+    var sum = 0;
+    var count = 0;
+
+    while (count < 5) {
+        if (X % 2 === 0) {
+            sum += X;
+            count++;
+        }
+        X++;
+    }
+
+    console.log(sum);
+}
