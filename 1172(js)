@@ -1,0 +1,16 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+var X = [];
+
+for (var i = 0; i < 10; i++) {
+    var value = parseInt(lines[i]);
+    if (value <= 0) {
+        value = 1;
+    }
+    X.push(value);
+}
+
+for (var i = 0; i < 10; i++) {
+    console.log("X[" + i + "] = " + X[i]);
+}
