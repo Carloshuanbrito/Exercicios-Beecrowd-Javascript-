@@ -1,0 +1,14 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+var N = parseInt(lines[0]);
+
+function calcularFatorial(N) {
+    if (N === 0) {
+        return 1;
+    }
+    return N * calcularFatorial(N - 1);
+}
+
+var fatorial = calcularFatorial(N);
+console.log(fatorial);
