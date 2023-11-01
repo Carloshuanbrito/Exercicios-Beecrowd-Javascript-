@@ -1,0 +1,15 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+const [X, Y] = lines[0].split(' ').map(Number);
+
+let currentNumber = 1;
+for (let i = 0; i < Y; i++) {
+    console.log(currentNumber.toString());
+    if ((i + 1) % X === 0) {
+        console.log('\n');
+    } else {
+        console.log(' ');
+    }
+    currentNumber++;
+}
