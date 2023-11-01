@@ -1,0 +1,32 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift();};
+
+var valores = [];
+
+for (var i = 0; i < 5; i++) {
+  valores.push(parseInt(prompt()));
+}
+
+var pares = 0;
+var impares = 0;
+var positivos = 0;
+var negativos = 0;
+
+for (var i = 0; i < valores.length; i++) {
+  if (valores[i] % 2 === 0) {
+    pares++;
+  } else {
+    impares++;
+  }
+  if (valores[i] > 0) {
+    positivos++;
+  } else if (valores[i] < 0) {
+    negativos++;
+  }
+}
+
+console.log(pares + " valor(es) par(es)");
+console.log(impares + " valor(es) impar(es)");
+console.log(positivos + " valor(es) positivo(s)");
+console.log(negativos + " valor(es) negativo(s)");
