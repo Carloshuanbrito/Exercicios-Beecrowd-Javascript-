@@ -1,0 +1,15 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+var X = parseInt(lines[0]);
+var Y = parseInt(lines[1]);
+
+var sum = 0;
+
+for (var i = Math.min(X, Y); i <= Math.max(X, Y); i++) {
+    if (i % 13 !== 0) {
+        sum += i;
+    }
+}
+
+console.log(sum);
