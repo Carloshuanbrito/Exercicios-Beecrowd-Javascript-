@@ -1,0 +1,18 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+while (true) {
+    var values = lines.shift().split(' ');
+    var X = parseInt(values[0]);
+    var Y = parseInt(values[1]);
+
+    if (X === Y) {
+        break;
+    }
+
+    if (X < Y) {
+        console.log("Crescente");
+    } else {
+        console.log("Decrescente");
+    }
+}
