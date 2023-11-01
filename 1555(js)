@@ -1,0 +1,19 @@
+var N = parseInt(lines[0]);
+var results = [];
+
+for (var i = 1; i <= N; i++) {
+    var [x, y] = lines[i].split(' ').map(Number);
+    var rafaelResult = (3 * x) ** 2 + y ** 2;
+    var betoResult = 2 * (x ** 2) + (5 * y) ** 2;
+    var carlosResult = -100 * x + y ** 3;
+
+    if (rafaelResult > betoResult && rafaelResult > carlosResult) {
+        results.push("Rafael ganhou");
+    } else if (betoResult > rafaelResult && betoResult > carlosResult) {
+        results.push("Beto ganhou");
+    } else {
+        results.push("Carlos ganhou");
+    }
+}
+
+console.log(results.join('\n'));
