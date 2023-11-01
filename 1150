@@ -1,0 +1,20 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+var X = parseInt(lines[0]);
+var Z = parseInt(lines[1]);
+
+while (Z <= X) {
+    Z = parseInt(lines.shift());
+}
+
+var soma = X;
+var count = 1;
+
+while (soma < Z) {
+    X++;
+    soma += X;
+    count++;
+}
+
+console.log(count);
