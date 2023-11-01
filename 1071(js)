@@ -1,0 +1,19 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift();};
+
+var X = parseInt(prompt());
+var Y = parseInt(prompt());
+
+var menor = Math.min(X, Y);
+var maior = Math.max(X, Y);
+
+var somaImpares = 0;
+
+for (var i = menor + 1; i < maior; i++) {
+  if (i % 2 !== 0) {
+    somaImpares += i;
+  }
+}
+
+console.log(somaImpares);
