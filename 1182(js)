@@ -1,0 +1,25 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+var C = parseInt(lines.shift());
+var T = lines.shift();
+
+var M = [];
+for (var i = 0; i < 12; i++) {
+    M[i] = [];
+    for (var j = 0; j < 12; j++) {
+        M[i][j] = parseFloat(lines.shift());
+    }
+}
+
+var result = 0.0;
+
+for (var i = 0; i < 12; i++) {
+    result += M[i][C];
+}
+
+if (T === 'M') {
+    result /= 12.0;
+}
+
+console.log(result.toFixed(1));
