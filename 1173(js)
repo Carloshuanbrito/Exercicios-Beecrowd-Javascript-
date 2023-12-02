@@ -1,0 +1,15 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+var V = parseInt(lines[0]);
+var N = [];
+
+N[0] = V;
+
+for (var i = 1; i < 10; i++) {
+    N[i] = N[i - 1] * 2;
+}
+
+for (var i = 0; i < 10; i++) {
+    console.log("N[" + i + "] = " + N[i]);
+}
