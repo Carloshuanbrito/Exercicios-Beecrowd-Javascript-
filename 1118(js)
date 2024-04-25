@@ -1,0 +1,31 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift(); };
+
+var novoCalculo = 1;
+
+while (novoCalculo === 1) {
+    var notas = [];
+    var notasValidas = 0;
+
+    while (notasValidas < 2) {
+        var nota = parseFloat(prompt('Informe a nota: '));
+
+        if (nota < 0 || nota > 10) {
+            console.log('nota invalida');
+        } else {
+            notas.push(nota);
+            notasValidas++;
+        }
+    }
+
+    var media = (notas[0] + notas[1]) / 2;
+    console.log('media = ' + media.toFixed(2));
+
+    console.log("novo calculo (1-sim 2-nao)");
+    novoCalculo = parseInt(prompt(""));
+    while (novoCalculo !== 1 && novoCalculo !== 2) {
+        console.log("novo calculo (1-sim 2-nao)");
+        novoCalculo = parseInt(prompt(""));
+    }
+}
