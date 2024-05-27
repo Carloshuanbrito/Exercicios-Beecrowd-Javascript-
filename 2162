@@ -1,0 +1,31 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+const N = parseInt(lines[0]);
+const alturas = lines[1].split(' ').map(Number);
+
+console.log(verificarPadraoPaisagem(N, alturas));
+
+function verificarPadraoPaisagem(N, alturas) {
+    if (N < 2) return 0;
+
+    let esperandoPico = alturas[1] > alturas[0]; 
+
+    for (let i = 1; i < N; i++) {
+        if (esperandoPico) {
+            
+            if (alturas[i] <= alturas[i - 1]) {
+                return 0;
+            }
+        } else {
+            
+            if (alturas[i] >= alturas[i - 1]) {
+                return 0;
+            }
+        }
+        
+        esperandoPico = !esperandoPico;
+    }
+
+    return 1;
+}
