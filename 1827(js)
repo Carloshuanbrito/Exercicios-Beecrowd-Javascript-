@@ -1,0 +1,40 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+function gerarMatriz(N) {
+    const matriz = Array.from({ length: N }, () => Array(N).fill(0));
+    
+    for (let i = 0; i < N; i++) {
+        matriz[i][i] = 2;
+        matriz[i][N - 1 - i] = 3;
+    }
+    
+    const inicio = Math.floor(N / 3);
+    const fim = N - inicio;
+    
+    for (let i = inicio; i < fim; i++) {
+        for (let j = inicio; j < fim; j++) {
+            matriz[i][j] = 1;
+        }
+    }
+    
+    const centro = Math.floor(N / 2);
+    matriz[centro][centro] = 4;
+    
+    return matriz;
+}
+
+function imprimirMatriz(matriz) {
+    for (let linha of matriz) {
+        console.log(linha.join(''));
+    }
+    console.log();
+}
+
+for (let line of lines) {
+    const N = parseInt(line.trim());
+    if (N % 2 === 1 && N >= 5 && N <= 101) {
+        const matriz = gerarMatriz(N);
+        imprimirMatriz(matriz);
+    }
+}
