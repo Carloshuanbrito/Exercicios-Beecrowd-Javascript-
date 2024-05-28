@@ -1,0 +1,29 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift();}
+
+var N = parseInt(prompt("Informe Quantidade de N:"));
+var totalSaques = 0, totalBloqueios = 0, totalAtaques = 0;
+var sucessoSaques = 0, sucessoBloqueios = 0, sucessoAtaques = 0;
+
+for (var i = 0; i < N; i++) {
+    var nome = prompt("Informe o Nome:");
+    var [S, B, A] = prompt("Quantidade de Ataques, Bloqueios e Saques").split(' ').map(Number);
+    var [S1, B1, A1] = prompt("Quantidade de Sucessos de Ataques, Bloqueios e Saques").split(' ').map(Number);
+    
+    totalSaques += S;
+    totalBloqueios += B;
+    totalAtaques += A;
+    
+    sucessoSaques += S1;
+    sucessoBloqueios += B1;
+    sucessoAtaques += A1;
+}
+
+var percentualSaques = (sucessoSaques / totalSaques) * 100;
+var percentualBloqueios = (sucessoBloqueios / totalBloqueios) * 100;
+var percentualAtaques = (sucessoAtaques / totalAtaques) * 100;
+
+console.log("Pontos de Saque: " + percentualSaques.toFixed(2) + " %.");
+console.log("Pontos de Bloqueio: " + percentualBloqueios.toFixed(2) + " %.");
+console.log("Pontos de Ataque: " + percentualAtaques.toFixed(2) + " %.");
