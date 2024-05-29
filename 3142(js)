@@ -1,0 +1,25 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+function colToIndex(col) {
+    var index = 0;
+    for (var i = 0; i < col.length; i++) {
+        index = index * 26 + (col.charCodeAt(i) - 64); // 'A' é 65, então 'A' - 64 = 1
+    }
+    return index;
+}
+
+var results = [];
+for (var i = 0; i < lines.length; i++) {
+    var col = lines[i].trim();
+    if (col) {
+        var index = colToIndex(col);
+        if (index >= 1 && index <= 16384) {
+            results.push(index);
+        } else {
+            results.push("Essa coluna nao existe Tobias!");
+        }
+    }
+}
+
+console.log(results.join('\n'));
