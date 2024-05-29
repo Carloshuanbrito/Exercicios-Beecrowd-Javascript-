@@ -1,0 +1,32 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift(); };
+
+var N = parseInt(prompt(''));
+
+var paises = [];
+
+for (var i = 0; i < N; i++) {
+    var linha = prompt('').split(' ');
+    var pais = linha[0];
+    var ouro = parseInt(linha[1]);
+    var prata = parseInt(linha[2]);
+    var bronze = parseInt(linha[3]);
+    paises.push({ nome: pais, ouro: ouro, prata: prata, bronze: bronze });
+}
+
+paises.sort(function(a, b) {
+    if (a.ouro !== b.ouro) {
+        return b.ouro - a.ouro;
+    } else if (a.prata !== b.prata) {
+        return b.prata - a.prata;
+    } else if (a.bronze !== b.bronze) {
+        return b.bronze - a.bronze;
+    } else {
+        return a.nome.localeCompare(b.nome);
+    }
+});
+
+paises.forEach(function(pais) {
+    console.log(pais.nome + ' ' + pais.ouro + ' ' + pais.prata + ' ' + pais.bronze);
+});
